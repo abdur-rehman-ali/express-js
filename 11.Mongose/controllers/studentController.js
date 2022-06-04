@@ -1,9 +1,11 @@
-const allStudents = (req,res)=>{
-    res.send('All students controller')
+const path = require('path')
+
+const index = (req,res)=>{
+    res.sendFile(path.join(process.cwd(),'views','index.html'))
 }
 
-const studentDetail =  (req,res)=>{
-    res.send('Students detail controller')
+const about =  (req,res)=>{
+    res.sendFile(path.join(process.cwd(),'views','about.html'))
 }
 
-module.exports = {allStudents,studentDetail}
+module.exports = {index,about}
