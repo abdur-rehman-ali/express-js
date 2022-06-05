@@ -4,6 +4,9 @@ const student = require('./routes/studentRoutes.js')
 const connectDB = require('./db/connectDB.js')
 const app = express()
 
+const studentModel = require('./models/Student.js')
+
+
 
 const port = 3000
 const DATABASE_URL = 'mongodb://localhost:27017/schooldb'
