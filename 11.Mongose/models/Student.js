@@ -10,5 +10,35 @@ const studentScheme = new mongoose.Schema({
     join:{type:Date,default:Date.now},
 })
 
+//path function
+// console.log(studentScheme.path('age'));
+
 //Creating models - Compiling scheme
 const studentModel = mongoose.model('student',studentScheme)
+
+
+
+const createDocument = async ()=>{
+    try {
+        //Creating new document
+        const studentDocument = new studentModel({
+        name:'ali joiya',
+        age:20,
+        fees:34234,
+        hobbies:['cricket','music','traveling'],
+        isActive:false,
+        comments:[{value:'First comment'}] 
+        })
+
+        //Saving document
+        const result = await  studentDocument.save()
+
+        console.log(result);
+        
+    } catch (error) {
+        console.log(error);
+    }
+
+} 
+
+module.exports = createDocument
